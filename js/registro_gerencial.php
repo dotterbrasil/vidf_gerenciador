@@ -24,9 +24,6 @@ $anvisa = $_POST["fanvisa"];
 $identificador = $_POST["fserial"];
 $lote = $_POST["flote"];
 $validade = $_POST["fvalidade"];//$validade = str_replace("/","",$validade);
-$destino = $_POST["fdestino"];
-$transportadora = $_POST["ftransportadora"];
-$nfe = $_POST["fnfe"];
 $natureza = $_POST["fnatureza"];
 $id = $_POST["fid"];
 

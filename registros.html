@@ -46,7 +46,7 @@ if (contra_senha == senha) {
 
 	var iframeDoc = document.getElementById("VID").contentWindow.document;
 	iframeDoc.open();
-	iframeDoc.write("<form name='formulario' action='http://v-id.net/demo/farma/funcoes/registro_gerencial.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='fdestino' id='fdestino' MAXLENGTH='14' SIZE='14' readonly='readonly'><INPUT TYPE='hidden' NAME='ftransportadora' id='ftransportadora' MAXLENGTH='14' SIZE='14' readonly='readonly'><INPUT TYPE='hidden' NAME='fnfe' id='fnfe' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
+	iframeDoc.write("<form name='formulario' action='http://v-id.net/demo/farma/funcoes/registro_gerencial.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
 	iframeDoc.close();
 
 	parent.VID.formulario.fid.value = document.getElementById("fid").value;
@@ -55,9 +55,9 @@ if (contra_senha == senha) {
 	parent.VID.formulario.fvalidade.value = document.getElementById("fvalidade").value;
 	parent.VID.formulario.flote.value = document.getElementById("flote").value;
 	parent.VID.formulario.fnatureza.value = document.getElementById("fnatureza").value;
-	parent.VID.formulario.fdestino.value = document.getElementById("fdestino").value;
-	parent.VID.formulario.ftransportadora.value = document.getElementById("ftransportadora").value;
-	parent.VID.formulario.fnfe.value = document.getElementById("fnfe").value;
+	//parent.VID.formulario.fdestino.value = document.getElementById("fdestino").value;
+	//parent.VID.formulario.ftransportadora.value = document.getElementById("ftransportadora").value;
+	//parent.VID.formulario.fnfe.value = document.getElementById("fnfe").value;
 	//parent.VID.formulario.fcfop.value = document.getElementById("fcfop").value;
 	parent.VID.formulario.conteudo.value = document.getElementById("conteudo").value;
 	parent.VID.formulario.dados.value = document.getElementById("dados").value;
