@@ -177,17 +177,10 @@ function validaArquivo(){
 
 function envio(){
 
-texto_alerta = "Dados Invalidos!";
-
-
-if (valida) {
-		parent.VID.formulario.submit();
-
+parent.VID.formulario.submit();
 		vid = document.formulario.fid.value;
 		document.formulario.reset();
 		document.getElementById("texto").value = "";
 		document.formulario.fid.value = vid;
-		
-	} else {alert(texto_alerta);}
 
 }
