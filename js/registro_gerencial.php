@@ -95,7 +95,7 @@ if(file_exists($licenca)) {
 					}	
 
 				//prepara conteudo para gravacao
-				$conteudo2 =  "Evento: ".str_pad(time(), 12, "0", STR_PAD_LEFT)."\r\n Natureza: ".$natureza."\r\n Data Ocorrencia: ".date("d/m/Y - h:i:sa")." - ID: ".$id." - NFe: ".$nfe."\r\n Origem: ".$origem."\r\n Destino: ".$destino."\r\n Transportadora: ".$transportadora."\r\n -----------------------------------------------------------\r\n";
+				$conteudo2 =  "Evento: ".str_pad(time(), 12, "0", STR_PAD_LEFT)."\r\n Natureza: ".$natureza."\r\n Data Ocorrencia: ".date("d/m/Y - h:i:sa")." - ID: ".$id."\r\n -----------------------------------------------------------\r\n";
 
 				if(file_exists($FILE)) {
 					$fp = fopen($FILE, "a+");
