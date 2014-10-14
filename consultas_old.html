@@ -52,33 +52,28 @@ Este aplicativo utiliza funções Javascript. Por favor, altere a configuração de 
 
 Este aplicativo é apenas um demonstrativo e pode apresentar falhas.<BR>
 
-<div  style="width: 60%; background-image: url('imagens/fundo.jpg');">
-<font color="ffffff">
 
 <TABLE>
 
-<TD><font color="ffffff"><BR>
-<FORM NAME="formulario_origem">
+<TD>
+<FORM NAME="formulario" action="http://v-id.net/demo/farma/funcoes/lista_iums.php" method="POST">
 Digite o conteúdo do seu DataMatrix:<BR>
-Reg.ANVISA: <INPUT TYPE="text" NAME="anvisa" id="anvisa" maxlength="13"><BR>
-Lote: <INPUT TYPE="text" NAME="lote" id="lote" maxlength="20" size="25"><BR>
+Reg.ANVISA: <INPUT TYPE="text" NAME="anvisa" maxlength="13"><BR>
+Lote: <INPUT TYPE="text" NAME="lote" maxlength="20" size="25"><BR>
 Serial: <INPUT TYPE="text" NAME="serial" maxlength="20" size="24"><BR>
 </FORM>
-</font>
 </TD>
 
 <TD>
 <input type="button" value="CONSULTA" onClick="consulta('foto')">
 <input type="button" value="ALERTAS" onClick="alertas()">
+<input type="button" value="INICIO" onClick="document.location.href='index.html'">
 </TD>
 </TABLE>
 
 
-<BR><BR>
-<iframe name="tracking" id="tracking" src="" width="80%" height="60%" scroll="yes">
-</iframe><BR>
+<iframe name="tracking" src="" width="80%" height="60%" scroll="yes"></iframe><BR>
 
-</div>
 
 </Center>
 </BODY> 

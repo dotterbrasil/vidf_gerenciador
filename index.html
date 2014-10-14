@@ -25,56 +25,37 @@ background-position: 5px 10px;
 } 
 </style> 
 
+
 <form name="formulario" action="http://v-id.net/demo/farma/funcoes/registro_gerencial.php" method="POST">
 
-<font size="1">
+<font size="4">
 
 
-<div style="position:absolute;left:20px; top:50px ">Produto:<br>
+<div style="position:absolute;left:20px; top:50px "><br>
 <IFRAME NAME="CampoFoto" SRC="imagens/foto.jpg" ALIGN="left" HEIGHT="200" WIDTH="200" SCROLLING="NO" FRAMEBORDER="0"> </IFRAME>
 </div>
 
-<div style="position:absolute;left:220px; top:40px "><font size="1">Reg. ANVISA: <br>
-<INPUT TYPE="text" NAME="fanvisa" id="fanvisa" MAXLENGTH="13" SIZE="20" readonly="readonly">
-</div>
+<div style="position:absolute;left:240px; top:10px ">
 
-<div style="position:absolute;left:220px; top:100px "><font size="1">Serial: <br>
-<INPUT TYPE="text" NAME="fserial" id="fserial" MAXLENGTH="20" SIZE="20" readonly="readonly">
-</div>
-
-<div style="position:absolute;left:220px; top:160px "><font size="1">Validade: <br>
-<INPUT TYPE="text" NAME="fvalidade" id="fvalidade" MAXLENGTH="5" SIZE="20" readonly="readonly">
-</div>
-
-<div style="position:absolute;left:220px; top:220px "><font size="1">Lote: <br>
-<INPUT TYPE="text" NAME="flote" id="flote" MAXLENGTH="20" SIZE="20" readonly="readonly">
-</div>
-
-<div style="position:absolute;left:450px; top:40px "><font size="3">Natureza da Operacao: <br>
-
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(3) entrega - (1) venda'"> Venda<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(3) entrega - (2) transferencia'"> Transferencia<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(3) entrega - (3) doacao'"> Doacao<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(3) entrega - (4) devolucao'"> Devolucao<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(3) entrega - (5) recolhimento'"> Recolhimento<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(3) entrega - (6) amostra gratis'"> Amostra Gratis<BR>
-
-CNPJ Destino:<BR><input type="text" name="fdestino" id="fdestino" MAXLENGTH='14' SIZE='14' onChange="validadestino()"><BR>
-CNPJ Transportadora:<BR><input type="text" name="ftransportadora" id="ftransportadora" MAXLENGTH='14' SIZE='14' onblur="validatransportadora()"><BR>
-
+<BR><BR>Operacao:<BR><BR>
+<input type="button" value="REGISTROS" style="width: 165px; height: 70px; font-size: 18px; margin: 0em 1em 1em 0;" onClick = "document.location.href='registros.html'">
+<BR>
+<input type="button" value="CONSULTAS" style="width: 165px; height: 70px; font-size: 18px; margin: 0em 1em 1em 0;" onClick = "document.location.href='consultas.html'">
 
 </div>
+
+<div style="position:absolute;left:250px; top:370px ">
+<img src="imagens/logo_vidf.jpg">
+</div>
+
+<div style="position:absolute;left:550px; top:30px ">
+Patrocinio:<BR>
+<img src="imagens/abrasp.jpg">
+</div>
+
 
 </form>
 
-<div name="escolha" style="z-index: 1;position:absolute;left:70px; top:70px; width: 500px; height: 200px; background-color: #cddcc0; box-shadow: 10px 10px 50px #888888;">
-
-<form name="botoes" align="center">
-<BR><BR>Escolha o tipo de operacao a ser realizada:<BR><BR>
-<input type="button" value="REGISTOS" onClick = "document.location.href='registros.html'">  -  
-<input type="button" value="CONSULTAS" onClick = "document.location.href='consultas.html'">
-</form>
-</div>
 
 </body>
 </html>

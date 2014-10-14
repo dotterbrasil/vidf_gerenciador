@@ -1,6 +1,6 @@
 var valida = false;
 
-function le_nota_nfe(chave){
+function le_nota(chave){
 
 cnpj = "00762956000120";
 
@@ -26,18 +26,6 @@ if (tamanho==44) {
 		texto_alerta = "Chave de Acesso Invalida";
 		alert(texto_alerta);
 	}
-}
-
-function le_nota(qrcode){
-
-
-document.formulario.fnatureza.value = qrcode.substring(10,qrcode.indexOf(' - Destino'));
-
-document.formulario.fdestino.value = qrcode.substring(qrcode.indexOf('Destino')+16,qrcode.indexOf(' - Transportadora'));
-
-document.formulario.ftransportadora.value = qrcode.substring(qrcode.indexOf('Transportadora')+23,qrcode.length);
-
-
 }
 
 
@@ -103,15 +91,14 @@ function validacnpj(str) {
 }
 
 function validatransportadora(){
-entrada = document.formulario.ftransportadora.value.substring(0,14);
+entrada = document.formulario.ftransportadora.value;
 valida = validacnpj(entrada);
 }
 
 function validadestino(){
 
-	entrada = document.formulario.fdestino.value.substring(0,14);
+	entrada = document.formulario.fdestino.value;
 	valida = validacnpj(entrada);
-	validatransportadora();
 
 }
 
@@ -179,16 +166,7 @@ function envio(){
 
 texto_alerta = "Dados Invalidos!";
 
-
-if (document.location.href.indexOf("recebimento")>0)
-	{
-	valida = true;
-	} else {
-		validadestino();
-		if (document.formulario.fdestino.value=="") {valida = false;}
-		if (document.formulario.ftransportadora.value=="") {valida = false;}
-		if (document.formulario.fnatureza.value=="") {valida = false;}
-		}
+if (document.location.href="recebimento") { valida = 1; }
 
 if (valida) {
 		parent.VID.formulario.submit();

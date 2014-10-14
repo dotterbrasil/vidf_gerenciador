@@ -21,7 +21,7 @@ function senha_otp(){
 
 senha = "";
 
-document.getElementById("senha").innerHTML = "<iframe name='otp' id='otp'></iframe>";
+document.getElementById("senha").innerHTML = "<iframe name='otp' id='otp'  width='400px' height='300px' scrolling='no' style='background-color: hsla(120,100%,75%,0.3); border: inset;'></iframe>";
 var iframe_senha = document.getElementById("otp").contentWindow.document;
 iframe_senha.open();
 
@@ -31,6 +31,7 @@ for(i=1;i<5;i++) {
 	iframe_senha.write("<img src=imagens/"+digito+".gif>");
 	senha = senha+digito;
 }
+iframe_senha.write("<br><br>Repita a senha acima: <input type='number' name='contra_senha' id='contra_senha' style='width: 155px; height: 80px; font-size: 40px; margin: 1em 1em 1em 0;'>");
 iframe_senha.close();
 
 }
@@ -38,11 +39,13 @@ iframe_senha.close();
 
 function chama_suporte() {
 
-contra_senha = prompt("Digite a senha OTP para confirmar o registro dos dados.");
+contra_senha = document.otp.contra_senha.value;
 
 if (contra_senha == senha) {
 
-	document.getElementById("janela").innerHTML = "<iframe name='VID' id='VID'></iframe>";
+	document.getElementById("senha").innerHTML = "";
+
+	document.getElementById("janela").innerHTML = "Mensagens:<br><iframe name='VID' id='VID' width='400px' height='280px'></iframe>";
 
 	var iframeDoc = document.getElementById("VID").contentWindow.document;
 	iframeDoc.open();
@@ -86,6 +89,10 @@ background-position: 5px 10px;
 } 
 </style> 
 
+<div style="position:absolute;left:200px; top:10px ">
+<b>MODULO DE GERENCIAMENTO</b>
+</div>
+
 <form name="formulario" action="http://v-id.net/demo/farma/funcoes/registro_gerencial.php" method="POST">
 
 <font size="1">
@@ -93,7 +100,7 @@ background-position: 5px 10px;
 <INPUT TYPE="text" NAME="fid" id="fid" SIZE="50" readonly="readonly">
 </div>
 
-<div style="position:absolute;left:20px; top:50px ">Produto:<br>
+<div style="position:absolute;left:20px; top:50px ">VIRTUAL ID<br>
 <IFRAME NAME="CampoFoto" SRC="imagens/foto.jpg" ALIGN="left" HEIGHT="200" WIDTH="200" SCROLLING="NO" FRAMEBORDER="0"> </IFRAME>
 </div>
 
@@ -101,7 +108,7 @@ background-position: 5px 10px;
 <INPUT TYPE="text" NAME="fanvisa" id="fanvisa" MAXLENGTH="13" SIZE="20" readonly="readonly">
 </div>
 
-<div style="position:absolute;left:220px; top:100px "><font size="1">Serial: <br>
+<div style="position:absolute;left:220px; top:100px "><font size="1">Unidade de Embarque: <br>
 <INPUT TYPE="text" NAME="fserial" id="fserial" MAXLENGTH="20" SIZE="20" readonly="readonly">
 </div>
 
@@ -113,31 +120,27 @@ background-position: 5px 10px;
 <INPUT TYPE="text" NAME="flote" id="flote" MAXLENGTH="20" SIZE="20" readonly="readonly">
 </div>
 
-<div style="position:absolute;left:450px; top:40px "><font size="3">Natureza da Operacao: <br>
+<div style="position:absolute;left:600px; top:40px "><font size="3">Natureza da Operacao: <br>
 
 <br><b><u> Finalizacao </u></b><br>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (1) dispensacao'"> Dispensacao<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (2) baixa'"> Baixa<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (3) extravio'"> Extravio<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (4) perda'"> Perda<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (5) descarte'"> Descarte<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (1) dispensacao'"> Dispensacao<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (2) baixa'"> Baixa<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (3) extravio'"> Extravio<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (4) perda'"> Perda<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (5) descarte'"> Descarte<BR>
 <BR>
 <br><b><u> Recuperacao </u></b><br>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(7) recuperacao'"> Recuperacao<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(7) recuperacao'"> Recuperacao<BR>
 <BR>
 <br><b><u> Retificacao </u></b><br>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) evento invalido'"> Evento Invalido<BR>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) substituicao de evento'"> Substituicao de Evento<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) evento invalido'"> Evento Invalido<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) substituicao de evento'"> Substituicao de Evento<BR>
 
 
 </div>
 
 <div style="position:absolute;left:50px; top:330px ">
 
-<INPUT TYPE="button" VALUE="Inicio" onClick="document.location.href='index.html'">
-<input type="button" value="Captura" onclick="startScan()">
-
-<input type="button" value="Gera OTP"  onClick="senha_otp()">
 
 <BR>_____________________________________________________________________________________<BR>
 
@@ -146,8 +149,8 @@ background-position: 5px 10px;
 <BR>
 <BR><BR>Registro para Processamento em Lote:<BR>
 <TEXTAREA NAME="texto" id="texto" form="formulario" rows=10 cols=70></TEXTAREA>
-<input type="hidden" name="dados" id="dados">
-<input type="button" value="REGISTRA" onClick="validaArquivo()"><BR>
+<input type="hidden" name="dados" id="dados"><br>
+
 
 Foram encontrados <input type="text" name="registros" id="registros" size="5" readonly="readonly"> registos com <INPUT TYPE="text" NAME="campos" id="campos" readonly="readonly" size="2"> campos.
 
@@ -155,10 +158,19 @@ Foram encontrados <input type="text" name="registros" id="registros" size="5" re
 
 </div>
 
-<div name="janela" id="janela" style="position:absolute;left:650px; top:10px ">Registro existente:<br>
+<div style="position:absolute;left:850px; top:330px "><font size="3">Operacao: <br>
+
+<input type="button" value="REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo()"><BR>
+<INPUT TYPE="button" VALUE="Inicio" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='index.html'"><BR>
+<input type="button" value="Captura" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onclick="startScan()"><BR>
+<input type="button" value="Gera Senha"  style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="senha_otp()">
+
 </div>
 
-<div name="senha" id="senha" style="position:absolute;left:650px; top:200px ">
+<div name="janela" id="janela" style="position:absolute;left:850px; top:10px ">
+</div>
+
+<div name="senha" id="senha" style="position:absolute;left:350px; top:150px ">
 </div>
 
 </body>
