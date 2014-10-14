@@ -1,7 +1,5 @@
 <?php
 
-$cnpj_licenca = "00762956000120";
-
 $sucesso = 0;
 $falha = 0;
 
@@ -37,6 +35,11 @@ $licenca = str_replace("Plataforma: ","",$licenca);
 $licenca = str_replace(" - UUID: ","",$licenca);
 
 if(file_exists($licenca)) {
+
+	//abre licenca para obter permissoes
+	$fp_licenca = fopen($licenca, "r");
+	$cnpj_licenca = fread($fp_licenca,filesize($licenca));
+	fclose($fp_licenca);
 
 	for ($x=0; $x<$contador; $x++)
   		{

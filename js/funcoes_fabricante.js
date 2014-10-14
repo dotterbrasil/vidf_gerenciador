@@ -180,16 +180,6 @@ function envio(){
 texto_alerta = "Dados Invalidos!";
 
 
-if (document.location.href.indexOf("recebimento")>0)
-	{
-	valida = true;
-	} else {
-		validadestino();
-		if (document.formulario.fdestino.value=="") {valida = false;}
-		if (document.formulario.ftransportadora.value=="") {valida = false;}
-		if (document.formulario.fnatureza.value=="") {valida = false;}
-		}
-
 if (valida) {
 		parent.VID.formulario.submit();
 
