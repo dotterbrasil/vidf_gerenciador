@@ -13,6 +13,70 @@
 
 	<script type="text/javascript" src="js/funcoes_fabricante.js"></script>
 
+<script>
+
+var senha = "";
+
+function senha_otp(){
+
+senha = "";
+
+document.getElementById("senha").innerHTML = "<iframe name='otp' id='otp'  width='400px' height='300px' scrolling='no' style='background-color: hsla(120,100%,75%,0.3); border: inset;'></iframe>";
+var iframe_senha = document.getElementById("otp").contentWindow.document;
+iframe_senha.open();
+
+iframe_senha.write("Senha OTP:<BR>");
+for(i=1;i<5;i++) {
+	digito = Math.floor((Math.random() * 10));
+	iframe_senha.write("<img src=imagens/"+digito+".gif>");
+	senha = senha+digito;
+}
+iframe_senha.write("<br><br>Repita a senha acima: <input type='number' name='contra_senha' id='contra_senha' style='width: 155px; height: 80px; font-size: 40px; margin: 1em 1em 1em 0;'>");
+iframe_senha.close();
+
+}
+
+
+function chama_suporte() {
+
+contra_senha = document.otp.contra_senha.value;
+
+if (contra_senha == senha) {
+
+	document.getElementById("senha").innerHTML = "";
+
+	document.getElementById("janela").innerHTML = "Mensagens:<br><iframe name='VID' id='VID' width='300px' height='280px'></iframe>";
+
+	var iframeDoc = document.getElementById("VID").contentWindow.document;
+	iframeDoc.open();
+	iframeDoc.write("<form name='formulario' action='http://virtual-id-farma.com/licencas/"+document.formulario.fid.value+"/header_gerenciador.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><INPUT TYPE='hidden' NAME='fmotivo' id='fmotivo' readonly='readonly'><INPUT TYPE='hidden' NAME='novo_lote' id='novo_lote' readonly='readonly'><INPUT TYPE='hidden' NAME='invalido' id='invalido' readonly='readonly'><INPUT TYPE='hidden' NAME='substituto' id='substituto' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
+	iframeDoc.close();
+
+	parent.VID.formulario.fid.value = document.getElementById("fid").value;
+	parent.VID.formulario.fanvisa.value = document.getElementById("fanvisa").value;
+	parent.VID.formulario.fserial.value = document.getElementById("fserial").value;
+	parent.VID.formulario.fvalidade.value = document.getElementById("fvalidade").value;
+	parent.VID.formulario.flote.value = document.getElementById("flote").value;
+	parent.VID.formulario.fnatureza.value = document.getElementById("fnatureza").value;
+	parent.VID.formulario.fmotivo.value = document.getElementById("motivo").value;
+	parent.VID.formulario.novo_lote.value = document.getElementById("novo_lote").value;
+	parent.VID.formulario.invalido.value = document.getElementById("invalido").value;
+	parent.VID.formulario.substituto.value = document.getElementById("substituto").value;
+	parent.VID.formulario.conteudo.value = document.getElementById("conteudo").value;
+	parent.VID.formulario.dados.value = document.getElementById("dados").value;
+	parent.VID.formulario.registros.value = document.getElementById("registros").value;
+	parent.VID.formulario.campos.value = document.getElementById("campos").value;
+
+	senha = Math.floor((Math.random() * 10000));
+	envio();
+	}
+	else{
+		alert("Senha Invalida! Operacao Cancelada!");
+	}
+
+}
+</script>
+
 </head>
 
 <body>
@@ -25,37 +89,103 @@ background-position: 5px 10px;
 } 
 </style> 
 
+<div style="position:absolute;left:200px; top:10px ">
+<b>MODULO DE GERENCIAMENTO</b>
+</div>
 
-<form name="formulario" action="http://v-id.net/demo/farma/funcoes/registro_gerencial.php" method="POST">
+<form name="formulario">
 
-<font size="4">
+<font size="1">
+<div style="position:absolute;left:20px; top:280px ">v-id:<br>
+<INPUT TYPE="text" NAME="fid" id="fid" SIZE="50" readonly="readonly">
+</div>
 
-
-<div style="position:absolute;left:20px; top:50px "><br>
+<div style="position:absolute;left:20px; top:50px ">VIRTUAL ID<br>
 <IFRAME NAME="CampoFoto" SRC="imagens/foto.jpg" ALIGN="left" HEIGHT="200" WIDTH="200" SCROLLING="NO" FRAMEBORDER="0"> </IFRAME>
 </div>
 
-<div style="position:absolute;left:240px; top:10px ">
+<div style="position:absolute;left:220px; top:40px "><font size="1">Reg. ANVISA: <br>
+<INPUT TYPE="text" NAME="fanvisa" id="fanvisa" MAXLENGTH="13" SIZE="20" readonly="readonly">
+</div>
 
-<BR><BR>Operacao:<BR><BR>
-<input type="button" value="REGISTROS" style="width: 165px; height: 70px; font-size: 18px; margin: 0em 1em 1em 0;" onClick = "document.location.href='registros.html'">
+<div style="position:absolute;left:220px; top:100px "><font size="1">Unidade de Embarque: <br>
+<INPUT TYPE="text" NAME="fserial" id="fserial" MAXLENGTH="20" SIZE="20" readonly="readonly">
+</div>
+
+<div style="position:absolute;left:220px; top:160px "><font size="1">Validade: <br>
+<INPUT TYPE="text" NAME="fvalidade" id="fvalidade" MAXLENGTH="5" SIZE="20" readonly="readonly">
+</div>
+
+<div style="position:absolute;left:220px; top:220px "><font size="1">Lote: <br>
+<INPUT TYPE="text" NAME="flote" id="flote" MAXLENGTH="20" SIZE="20" readonly="readonly">
+</div>
+
+<div style="position:absolute;left:480px; top:40px "><font size="3">Natureza da Operacao: <br>
+
+<br><b><u> Finalizacao </u></b><br>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (1) dispensacao'"> Dispensacao<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 0em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (2) baixa'"> Baixa<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 0em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (3) extravio'"> Extravio<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 0em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (4) perda'"> Perda<BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 0em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(6) finalizacao - (5) descarte'"> Descarte<BR>
 <BR>
-<input type="button" value="CONSULTAS" style="width: 165px; height: 70px; font-size: 18px; margin: 0em 1em 1em 0;" onClick = "document.location.href='consultas.html'">
+
 
 </div>
 
-<div style="position:absolute;left:250px; top:370px ">
-<img src="imagens/logo_vidf.jpg">
+<div style="position:absolute;left:660px; top:40px ">
+
+<br><br><b><u> Recuperacao </u></b><br>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(7) recuperacao'"> Recuperacao<br>
+<font size=2>Novo Lote:<br></font>
+<input type="text" name="novo_lote" id="novo_lote" MAXLENGTH="20" SIZE="20">
+<BR>
+<br><b><u> Retificacao </u></b><br>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) evento invalido'"> Evento Invalido - <input type="text" name="invalido" id="invalido" MAXLENGTH="20" SIZE="20"><BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 0em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) substituicao de evento'"> Evento Substituto - <input type="text" name="substituto" id="substituto" MAXLENGTH="20" SIZE="20"><BR>
+
 </div>
 
-<div style="position:absolute;left:550px; top:30px ">
-Patrocinio:<BR>
-<img src="imagens/abrasp.jpg">
+<div style="position:absolute;left:50px; top:330px ">
+
+
+<BR>_____________________________________________________________________________________<BR>
+
+
+<INPUT TYPE="hidden" NAME="conteudo" id="conteudo">
+<BR>
+<BR><BR>Registro para Processamento em Lote:<BR>
+<TEXTAREA NAME="texto" id="texto" form="formulario" rows=10 cols=70 readonly="readonly"></TEXTAREA>
+
+<input type="hidden" name="dados" id="dados"><br>
+
+
+Foram encontrados <input type="text" name="registros" id="registros" size="5" readonly="readonly"> registos com <INPUT TYPE="text" NAME="campos" id="campos" readonly="readonly" size="2"> campos.
+
 </div>
 
+<div style="position:absolute;left:600px; top:420px ">
+
+Motivo:<br>
+<TEXTAREA NAME="motivo" id="motivo" form="formulario" rows=10 cols=30></TEXTAREA>
+
+</div>
+
+<div style="position:absolute;left:100px; top:300px "><font size="3">Operacao:
+
+<INPUT TYPE="button" VALUE="Inicio >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='index.html'">
+<input type="button" value="(1) Captura" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onclick="startScan()">
+<input type="button" value="(2) Gera Senha"  style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="senha_otp()">
+<input type="button" value="(3) REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo()">
+
+</div>
+
+<div name="janela" id="janela" style="position:absolute;left:450px; top:10px ">
+</div>
+
+<div name="senha" id="senha" style="position:absolute;left:350px; top:150px ">
+</div>
 
 </form>
-
-
 </body>
 </html>
