@@ -61,7 +61,6 @@ else {
 			break;
 		case "21":
 			serial = n.substring(2,fim_de_campo);
-			document.formulario.fserial.value = serial;
 			document.getElementById("texto").value = document.getElementById("texto").value+serial+";"
 			n = n.substring(fim_de_campo,n.length);
 			break;
@@ -84,7 +83,14 @@ else {
 
 
 		default:
-			texto_alerta = "Este não é um código válido!";
+			if (GTIN =="")
+				{
+				texto_alerta = "GTIN nao detectado.";
+				}
+				else
+				{
+				texto_alerta = "Este nao e um codigo valido!";
+				}
 			alert(texto_alerta);
 			i=10;
 			break;
