@@ -28,14 +28,20 @@ if (tamanho==44) {
 	}
 }
 
-function le_nota(qrcode){
+function le_nota(aux){
 
+if(isNAN(aux))
+	{
+	document.formulario.fnatureza.value = qrcode.substring(10,qrcode.indexOf(' - Destino'));
 
-document.formulario.fnatureza.value = qrcode.substring(10,qrcode.indexOf(' - Destino'));
+	document.formulario.fdestino.value = qrcode.substring(qrcode.indexOf('Destino')+16,qrcode.indexOf(' - Transportadora'));
 
-document.formulario.fdestino.value = qrcode.substring(qrcode.indexOf('Destino')+16,qrcode.indexOf(' - Transportadora'));
-
-document.formulario.ftransportadora.value = qrcode.substring(qrcode.indexOf('Transportadora')+23,qrcode.length);
+	document.formulario.ftransportadora.value = qrcode.substring(qrcode.indexOf('Transportadora')+23,qrcode.length);
+	}
+	else
+		{
+		document.formulario.fserial.value = aux;
+		}
 
 
 }
