@@ -30,7 +30,7 @@ if (tamanho==44) {
 
 function le_nota(aux){
 
-if(aux.legth>13)
+if(aux.length>13)
 	{
 	document.formulario.fnatureza.value = qrcode.substring(10,qrcode.indexOf(' - Destino'));
 
