@@ -182,3 +182,11 @@ parent.VID.formulario.submit();
 		document.formulario.fid.value = vid;
 
 }
+
+
+function fecha_janela(){
+
+document.getElementById('senha').style.display='none';
+document.getElementById('janela').style.display='none';
+
+}

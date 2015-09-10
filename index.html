@@ -17,9 +17,12 @@
 
 var senha = "";
 
+
 function senha_otp(){
 
 senha = "";
+
+document.getElementById('senha').style.display='block';
 
 document.getElementById("senha").innerHTML = "<iframe name='otp' id='otp'  width='400px' height='300px' scrolling='no' style='background-color: hsla(120,100%,75%,0.3); border: inset;'></iframe>";
 var iframe_senha = document.getElementById("otp").contentWindow.document;
@@ -31,13 +34,17 @@ for(i=1;i<5;i++) {
 	iframe_senha.write("<img src=imagens/"+digito+".gif>");
 	senha = senha+digito;
 }
-iframe_senha.write("<br><br>Repita a senha acima: <input type='number' name='contra_senha' id='contra_senha' style='width: 155px; height: 80px; font-size: 40px; margin: 1em 1em 1em 0;'>");
+iframe_senha.write("<br><br>Repita a senha acima: <input type='number' name='contra_senha' id='contra_senha' MAXLENGTH='4' style='width: 155px; height: 80px; font-size: 40px; margin: 1em 1em 1em 0;'><br>Esta janela sera fechada em alguns segundos.");
 iframe_senha.close();
+
+
 
 }
 
 
 function chama_suporte() {
+
+document.getElementById('janela').style.display='block';
 
 contra_senha = document.otp.contra_senha.value;
 
@@ -45,7 +52,7 @@ if (contra_senha == senha) {
 
 	document.getElementById("senha").innerHTML = "";
 
-	document.getElementById("janela").innerHTML = "Mensagens:<br><iframe name='VID' id='VID' width='300px' height='280px'></iframe>";
+	document.getElementById("janela").innerHTML = "Mensagens:<br><iframe name='VID' id='VID' width='300px' height='280px' style='background-color: #FFFFFF'></iframe>";
 
 	var iframeDoc = document.getElementById("VID").contentWindow.document;
 	iframeDoc.open();
@@ -150,7 +157,12 @@ background-position: 5px 10px;
 
 
 <BR>_____________________________________________________________________________________<BR>
-
+<INPUT TYPE="button" VALUE="Inicio >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='index.html'">
+<input type="button" value="(1) Captura" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onclick="startScan()">
+<input type="button" value="(2) Gera Senha"  style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="senha_otp(); setTimeout('fecha_janela()',5000);">
+<input type="button" value="(3) REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo(); setTimeout('fecha_janela()',10000);">
+<br>Motivo:<br>
+<TEXTAREA NAME="motivo" id="motivo" form="formulario" rows=3 cols=70></TEXTAREA>
 
 <INPUT TYPE="hidden" NAME="conteudo" id="conteudo">
 <BR>
@@ -164,21 +176,7 @@ Foram encontrados <input type="text" name="registros" id="registros" size="5" re
 
 </div>
 
-<div style="position:absolute;left:600px; top:420px ">
 
-Motivo:<br>
-<TEXTAREA NAME="motivo" id="motivo" form="formulario" rows=10 cols=30></TEXTAREA>
-
-</div>
-
-<div style="position:absolute;left:100px; top:300px "><font size="3">Operacao:
-
-<INPUT TYPE="button" VALUE="Inicio >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='index.html'">
-<input type="button" value="(1) Captura" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onclick="startScan()">
-<input type="button" value="(2) Gera Senha"  style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="senha_otp()">
-<input type="button" value="(3) REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo()">
-
-</div>
 
 <div name="janela" id="janela" style="position:absolute;left:450px; top:10px ">
 </div>
