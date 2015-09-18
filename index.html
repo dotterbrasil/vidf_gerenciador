@@ -56,7 +56,7 @@ if (contra_senha == senha) {
 
 	var iframeDoc = document.getElementById("VID").contentWindow.document;
 	iframeDoc.open();
-	iframeDoc.write("<form name='formulario' action='http://virtual-id-farma.com/licencas/"+document.formulario.fid.value+"/header_gerenciador.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><INPUT TYPE='hidden' NAME='fmotivo' id='fmotivo' readonly='readonly'><INPUT TYPE='hidden' NAME='novo_lote' id='novo_lote' readonly='readonly'><INPUT TYPE='hidden' NAME='invalido' id='invalido' readonly='readonly'><INPUT TYPE='hidden' NAME='substituto' id='substituto' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
+	iframeDoc.write("Conectando ao servidor. Aguarde...<form name='formulario' action='http://virtual-id-farma.com/licencas/"+document.formulario.fid.value+"/header_gerenciador.php' method='POST'><INPUT TYPE='hidden' NAME='fid' id='fid' SIZE='50' readonly='readonly'><INPUT TYPE='hidden' NAME='fanvisa' id='fanvisa' MAXLENGTH='13' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fserial' id='fserial' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fvalidade' id='fvalidade' MAXLENGTH='5' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='flote' id='flote' MAXLENGTH='20' SIZE='20' readonly='readonly'><INPUT TYPE='hidden' NAME='fnatureza' id='fnatureza' readonly='readonly'><INPUT TYPE='hidden' NAME='conteudo' id='conteudo' readonly='readonly'><INPUT TYPE='hidden' NAME='fmotivo' id='fmotivo' readonly='readonly'><INPUT TYPE='hidden' NAME='novo_lote' id='novo_lote' readonly='readonly'><INPUT TYPE='hidden' NAME='invalido' id='invalido' readonly='readonly'><INPUT TYPE='hidden' NAME='substituto' id='substituto' readonly='readonly'><input type='hidden' name='dados' id='dados' readonly='readonly'><input type='hidden' name='registros' id='registros' size='5' readonly='readonly'><INPUT TYPE='hidden' NAME='campos' id='campos' readonly size='2' readonly='readonly'></frame>");
 	iframeDoc.close();
 
 	parent.VID.formulario.fid.value = document.getElementById("fid").value;
@@ -148,19 +148,19 @@ background-position: 5px 10px;
 <input type="text" name="novo_lote" id="novo_lote" MAXLENGTH="20" SIZE="20">
 <BR>
 <br><b><u> Retificacao </u></b><br>
-<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) evento invalido'"> Evento Invalido - <input type="text" name="invalido" id="invalido" MAXLENGTH="20" SIZE="20"><BR>
+<INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 1em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) evento invalido'"> Evento Invalido - <input type="text" name="invalido" id="invalido" MAXLENGTH="20" SIZE="20" onChange="document.formulario.substituto.value = 'R'+document.formulario.invalido.value.substring(1);"><BR>
 <INPUT TYPE="radio" NAME="fnatureza" id="fnatureza" style="-webkit-transform: scale(2.5,2.5); margin: 0em 1em 2em 1em;" onchange = "document.getElementById('fnatureza').value = '(8) retificacao - (1) substituicao de evento'"> Evento Substituto - <input type="text" name="substituto" id="substituto" MAXLENGTH="20" SIZE="20"><BR>
 
 </div>
 
-<div style="position:absolute;left:50px; top:330px ">
+<div style="position:absolute;left:50px; top:300px ">
 
 
 <BR>_____________________________________________________________________________________<BR>
-<INPUT TYPE="button" VALUE="Inicio >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="document.location.href='index.html'">
+<INPUT TYPE="button" VALUE="Inicio >>" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="fecha_janela();">
 <input type="button" value="(1) Captura" style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onclick="startScan()">
 <input type="button" value="(2) Gera Senha"  style="width: 155px; height: 70px; font-size: 20px; margin: 0em 1em 1em 0;" onClick="senha_otp(); setTimeout('fecha_janela()',5000);">
-<input type="button" value="(3) REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo(); setTimeout('fecha_janela()',10000);">
+<input type="button" value="(3) REGISTRA" style="width: 155px; height: 70px; font-size: 20px; margin: 1em 1em 1em 0;" onClick="validaArquivo();">
 <br>Motivo:<br>
 <TEXTAREA NAME="motivo" id="motivo" form="formulario" rows=3 cols=70></TEXTAREA>
 
